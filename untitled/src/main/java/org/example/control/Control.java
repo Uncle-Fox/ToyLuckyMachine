@@ -3,14 +3,15 @@ package org.example.control;
 import org.example.service.Toy;
 import org.example.view.View;
 
+import java.util.List;
+
 public class Control {
     private LuckyMachine luckyMachine;
-    private DropSystem dropSystem;
     private View view;
+    private List<Toy> drawResults;
 
-    public Control(LuckyMachine luckyMachine, DropSystem dropSystem, View view) {
+    public Control(LuckyMachine luckyMachine, View view) {
         this.luckyMachine = luckyMachine;
-        this.dropSystem = dropSystem;
         this.view = view;
     }
     public void addNewToys(Toy... toys){
@@ -18,8 +19,7 @@ public class Control {
             luckyMachine.addToy(toy);
         }
     }
-
     public void startDropSystem(){
-        dropSystem.startDrop();
+        luckyMachine.startDropSystem(view);
     }
 }
