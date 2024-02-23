@@ -19,7 +19,6 @@ public class LuckyMachine{
         toyQueue.add(toy);
     }
     public void startDropSystem(View view){
-//        view.startNewDraw();
         resultToFile.writeToFile(view.startNewDraw());
         while(!toyQueue.isEmpty()){
             Toy toy = drawWinToy();
@@ -34,14 +33,18 @@ public class LuckyMachine{
 
     public Toy drawWinToy(){
         Toy selectedToy = null;
+        double randomChance = random.nextDouble(); // Получаем случайное число от 0.0 до 1.0
+        double minDifference = Double.MAX_VALUE; // Начальное значение минимальной разницы
 
         for (Toy toy : toyQueue) {
-            double randomChance = random.nextDouble(); // Случайное число от 0.0 до 1.0
-            if (randomChance <= toy.getChanseOut()) {
+            double difference = Math.abs(randomChance - toy.getChanseOut()); // Вычисляем модуль разницы между случайным
+            // числом и вероятностью выпадения игрушки
+            if (difference < minDifference) {
+                minDifference = difference;
                 selectedToy = toy;
-                break;
             }
         }
+
         if(selectedToy != null) {
             toyQueue.remove(selectedToy);
         }

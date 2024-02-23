@@ -29,8 +29,8 @@ public class Main {
         Toy toy5 = new ToyRobot(5, "Toy Robot 7", 0.35);
 
         control.addNewToys(toy1, toy2, toy3, toy4, toy5);
-        control2.addNewToys(toy1, toy4, toy5);
-        control3.addNewToys(toy1, toy2, toy3, toy5);
+        control2.addNewToys(toy1, toy3, toy2, toy4, toy5);
+        control3.addNewToys(toy1, toy5, toy4, toy3, toy2);
 
 
         // Запуск системы розыгрыша
