@@ -34,7 +34,6 @@ public class Main {
 
 
         // Запуск системы розыгрыша
-        view.startNewDraw();
         control.startDropSystem();
         control2.startDropSystem();
         control3.startDropSystem();
